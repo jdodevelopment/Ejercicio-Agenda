@@ -1,0 +1,15 @@
+<div class="container d-flex flex-column align-items-center">
+
+  <h1 class="mb-4">Agenda</h1>
+  
+  <div class="row m-2 form-container">
+    <app-person-form (newPerson)="addPerson($event)"></app-person-form>
+  </div>
+
+  <div class="row m-3 card-group cards-container">
+    <div class="col-lg-4 col-md-6" *ngFor="let person of array">
+      <app-person-card [person]="person"></app-person-card>
+    </div>
+  </div>
+
+</div>

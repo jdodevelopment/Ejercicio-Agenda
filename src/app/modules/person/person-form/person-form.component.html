@@ -1,0 +1,47 @@
+<form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+
+    <input type="text" formControlName="nombre" class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && controls.nombre.errors }" placeholder="Nombre" />
+    <div *ngIf="submitted && controls.nombre.errors" class="invalid-feedback">
+      <div *ngIf="controls.nombre.errors.required">Por favor, ingrese el nombre</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="text" formControlName="apellido" class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && controls.apellido.errors }"  placeholder="Apellido"/>
+    <div *ngIf="submitted && controls.apellido.errors" class="invalid-feedback">
+      <div *ngIf="controls.apellido.errors.required">Por favor, ingrese el apellido</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="number" formControlName="edad" class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && controls.edad.errors }"  placeholder="Edad"/>
+    <div *ngIf="submitted && controls.edad.errors" class="invalid-feedback">
+      <div *ngIf="controls.edad.errors.required">Por favor, ingrese la edad</div>
+      <div *ngIf="controls.edad.errors.min || controls.edad.errors.max">Por favor, ingrese un número válido (entre 1 y 99)</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" formControlName="email" class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && controls.email.errors }"  placeholder="Email"/>
+    <div *ngIf="submitted && controls.email.errors" class="invalid-feedback">
+      <div *ngIf="controls.email.errors.required">Por favor, ingrese el email</div>
+      <div *ngIf="controls.email.errors.email">Por favor, ingrese un email válido</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" formControlName="telefono" class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && controls.telefono.errors }"  placeholder="Teléfono"/>
+    <div *ngIf="submitted && controls.telefono.errors" class="invalid-feedback">
+      <div *ngIf="controls.telefono.errors.required">Por favor, ingrese el número de teléfono</div>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <button class="btn btn-primary btn-block">Guardar Persona</button>
+  </div>
+</form>
